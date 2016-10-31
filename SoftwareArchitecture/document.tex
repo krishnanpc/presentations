@@ -128,7 +128,7 @@ Intelligent Adaptive Systems, UHH\\
 	\begin{itemize}
 		 \item Key prerequisites for CD: extensive automation of all possible parts of the delivery process (DeploymentPipeline) and close collaboration between everyone involved in delivery (DevOpsCulture) 
   		 \item Drawbacks of monolithic architecture from CD perspective: long build time, delayed feedback (because of large number of people checking in changes simultaneously), unclear responsibility for broken builds or bugs, time consuming test runs (automatic and manual), small change can affect the whole application. However, it is not impossible to maintain CD with monolithic architecture (example: Facebook).
-                 \item Microservices are by nature loosely coupled and can be delivered relatively independently. However, they require high quality, reliable monitoring and operation infrastructure (instead of one applications we run tens of services)
+                 \item Microservices are by nature loosely coupled and can be delivered relatively independently. However, they require high quality reliable monitoring and operation infrastructure (instead of one applications we run tens of services)
 	\end{itemize}
 \end{frame}
 %===============================End
@@ -139,34 +139,36 @@ Intelligent Adaptive Systems, UHH\\
 % Tools section
 \section{Tools}
 
-% Unit testing
 \begin{frame}
-	\frametitle{Unit Testing}
+	\frametitle{Tools}
 	\framesubtitle{}
-	Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on the early stages of development and most precisely (up to the line of code).  
 	\begin{itemize}
- 		 \item xUnit family of testing frameworks derived from SmallTalk testing framework, designed by Kent Beck. Later was implemented in many other languages, including Java (JUnit), R (RUnit), JQuery (QUnit) and etc. xUnit frameworks share same component architecture.
+		% Unit testing: Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on
+		% the early stages and most precisely (up to the line of code).  Unit testing is also the powerful designing tool (especially if it is used in the context of TDD),
+		% because it highlights when module should be broken into smaller more coherent pieces.
+		\item Unit Testing
+			\begin{itemize}
+				% Sociable Unit testing (module treated as block box and tested via its interface in isolation) vs. Solitary unit testing (looks at interactions between object and its dependencies, which are replaced by test doubles)
+ 		 		\item Sociable Unit testing  vs. Solitary unit testing 
+		 		\item Tool 1: xUnit family of testing frameworks derived from SmallTalk testing framework, designed by Kent Beck. 
+				\item Tool 2: Frameworks for mocking and stubbing, for example Mockito
+			\end{itemize}
+		\item Contract Testing
+			\begin{itemize}
+ 				\item Integration contract testing: performed by using of test doubles of service that is to be consumed
+					\begin{itemize}
+						\item Mocking 
+						\item Stubbing
+					\end{itemize}
+				\item Consumer driven contract testing: performed by provider against consumer defined contracts
+					\begin{itemize}
+						\item Pact: Analogies: Pacto, Janus
+						\item Data passing between services like SOAP UI
+					\end{itemize}
+			\end{itemize}		
 	\end{itemize}
 \end{frame}
 
-% Contract testing
-\begin{frame}
-	\frametitle{Contract testing}
-	\framesubtitle{}
-
-	\begin{itemize}
- 		\item Integration contract testing: performed by using of test doubles of service that is to be consumed
-			\begin{itemize}
-				\item Mocking 
-				\item Stubbing
-			\end{itemize}
-		\item Consumer driven contract testing: performed by provider against consumer defined contracts
-			\begin{itemize}
-				\item Pact: Analogies: Pacto, Janus
-				\item Data passing between services like SOAP UI
-			\end{itemize}
-	\end{itemize}
-\end{frame}
 
 % End-to-end testing
 \begin{frame}
@@ -186,9 +188,23 @@ Intelligent Adaptive Systems, UHH\\
 	<The UML diagram of example architecture>
 	\begin{itemize}
  		 \item Scenario 1: Testing microservices within application. \\
-			 
+			\begin{itemize}
+ 				 \item Unit testing:
+				 \item Contract testing:
+				 \item End-to-end testing:
+			\end{itemize}	 
 		 \item Scenario 2: Testing microservices that use third-party service
+			\begin{itemize}
+ 				 \item Unit testing:
+				 \item Contract testing:
+				 \item End-to-end testing:
+			\end{itemize}	
 		 \item Scenario 3: Testing of microservice that will be or is already exposed to public domain
+			\begin{itemize}
+ 				 \item Unit testing:
+				 \item Contract testing:
+				 \item End-to-end testing:
+			\end{itemize}	
 	\end{itemize}
 \end{frame}
 %===============================End
