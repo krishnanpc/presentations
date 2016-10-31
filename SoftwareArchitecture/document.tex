@@ -121,10 +121,14 @@ Intelligent Adaptive Systems, UHH\\
 % Continuous delivery section
 \section{Continuous Delivery}
 \begin{frame}
-	\frametitle{Continuous Delivery}
+	\frametitle{Continuous Delivery} 
+	\begin{block}{Martin Fowler's definition:}
+		 Continuous delivery is a software development discipline where you build software in such a way that it can be released to production at any time. Principle benefits: reduced deployment risk, transparency, immediate user feedback.	
+	\end{block}
 	\begin{itemize}
- 		 \item What is continuous delivery (according to Martin Fowler)
-		 \item 
+		 \item Key prerequisites for CD: extensive automation of all possible parts of the delivery process (DeploymentPipeline) and close collaboration between everyone involved in delivery (DevOpsCulture) 
+  		 \item Drawbacks of monolithic architecture from CD perspective: long build time, delayed feedback (because of large number of people checking in changes simultaneously), unclear responsibility for broken builds or bugs, time consuming test runs (automatic and manual), small change can affect the whole application. However, it is not impossible to maintain CD with monolithic architecture (example: Facebook).
+                 \item Microservices are by nature loosely coupled and can be delivered relatively independently. However, they require high quality, reliable monitoring and operation infrastructure (instead of one applications we run tens of services)
 	\end{itemize}
 \end{frame}
 %===============================End
@@ -135,10 +139,12 @@ Intelligent Adaptive Systems, UHH\\
 \section{Scenarios}
 \begin{frame}
 	\frametitle{Scenarios}
+	<The UML diagram of example architecture>
 	\begin{itemize}
- 		 \item Internal testing
-		 \item
-		 \item
+ 		 \item Scenario 1: Testing microservices within application. \\
+			 
+		 \item Scenario 2: Testing microservices that use third-party service
+		 \item Scenario 3: Testing of microservice that will be or is already exposed to public domain
 	\end{itemize}
 \end{frame}
 %===============================End
@@ -147,29 +153,55 @@ Intelligent Adaptive Systems, UHH\\
 %==============================Start
 % Tools section
 \section{Tools}
+
+% Unit testing
 \begin{frame}
 	\frametitle{Unit Testing}
 	\framesubtitle{}
-
+	Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on the early stages of development and most precisely (up to the line of code).  
 	\begin{itemize}
- 		 \item xUnit family 
+ 		 \item xUnit family of testing frameworks derived from SmallTalk testing framework, designed by Kent Beck. Later was implemented in many other languages, including Java (JUnit), R (RUnit), JQuery (QUnit) and etc. xUnit frameworks share same component architecture.
 	\end{itemize}
 \end{frame}
 
+% Contract testing
 \begin{frame}
 	\frametitle{Contract testing}
-	\framesubtitle{Subtitles are optional}
+	\framesubtitle{}
 
 	\begin{itemize}
- 		 \item Stubbing and Mocking
+ 		\item Integration contract testing: performed by using of test doubles of service that is to be consumed
+			\begin{itemize}
+				\item Mocking 
+				\item Stubbing
+			\end{itemize}
+		\item Consumer driven contract testing: performed by provider against consumer defined contracts
+			\begin{itemize}
+				\item Pact: Analogies: Pacto, Janus
+				\item Data passing between services like SOAP UI
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
+% End-to-end testing
 \begin{frame}
 	\frametitle{End-to-end testing}
 	\framesubtitle{Subtitles are optional}
 	\begin{itemize}
  		 \item End-to-end testing tools
+	\end{itemize}
+\end{frame}
+%===============================End
+
+
+%==============================Start
+% References section
+\begin{frame}
+	\frametitle{References}
+	\framesubtitle{}
+	\begin{itemize}
+ 		 \item Books
+		 \item Articles and blogs
 	\end{itemize}
 \end{frame}
 %===============================End
