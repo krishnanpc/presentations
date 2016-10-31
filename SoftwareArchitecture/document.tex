@@ -33,7 +33,9 @@
 %\usepackage{amsmath}
 \usepackage{pgfpages}
 % citations
+
 \usepackage{natbib}
+\bibliographystyle{ksfh_nat}
 \bibpunct{(}{)}{;}{a}{,}{,}
 \def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
 \renewcommand{\bibsection}{\subsubsection*{\bibname } }
@@ -166,8 +168,11 @@ Intelligent Adaptive Systems, UHH\\
 	\frametitle{References}
 	\framesubtitle{}
 
-
+	% make a list even without citation
+        \nocite{infosys,newman}
+	\bibliography{references}
 \end{frame}
+
 %===============================End
 
 %==============================Start
