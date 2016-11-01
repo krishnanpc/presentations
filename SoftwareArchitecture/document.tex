@@ -104,14 +104,25 @@ Intelligent Adaptive Systems, UHH\\
 
 %==============================Start
 % Theory section
-\section{Introduction}
+\section{Structure}
 %\subsection[Short First Subsection Name]{First Subsection Name}
-
 \begin{frame}
-	\frametitle{Introduction}	
+	\frametitle{Structure}	
 	\framesubtitle{}
-	Goals: explore strategies of building reliable QA system, that could cope with challenges specific for microservice architectures. Give an examples of existing tools and technologies.
-        Consider different types of testing within key scenarios.
+	Goal: explore QA techniques and approaches, that could cope with challenges specific for microservice architectures. \\
+	Structure:
+	\begin{itemize}
+		\item Give an insight of why QA is important and what challenges it meets in microservice architectures. 
+ 		\item Give and overview of QA techniques that are used in all stages of development: from coding phase to production. Explain benefits that we gain, using these 	   techniques. 
+		\item Show on the example of metasearch engine how these techniques could be applied and how they could be adapted to different scenarios.
+		\item Provide some examples of software tools and show how they could be used for an implementation of explored QA techniques.
+	\end{itemize}
+\end{frame}
+
+\section{Theoretical part}
+\begin{frame}
+	\frametitle{Theoretical part}	
+	\framesubtitle{}
 
 	\begin{itemize}
  		 \item Challenges of testing in microservice architectures.
@@ -124,13 +135,28 @@ Intelligent Adaptive Systems, UHH\\
 \end{frame}
 %===============================End
 
+%==============================Start
+% Scenarios section
+\section{Example}
+\begin{frame}
+	\frametitle{Example}
+	We are going to use an example of metasearch engine (for traveling-related information) throughout our presentation to show how explored techniques could be applied. 
+	We also want to show that testing strategies should be adapted to concrete scenarios on the example of:
+	\begin{itemize}	
+ 		\item Scenario 1: Testing microservices within application.
+		\item Scenario 2: Testing microservices that use third-party service
+		\item Scenario 3: Testing microservices that will be or is already exposed to public domain
+	\end{itemize}
+\end{frame}
+%===============================End
+
 
 %==============================Start
 % Tools section
-\section{Tools and Techniques}
+\section{Tools}
 
 \begin{frame}
-	\frametitle{Tools and Techniques}
+	\frametitle{Tools}
 	\framesubtitle{}
 	\begin{itemize}
 		% Unit testing: Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on
@@ -142,25 +168,11 @@ Intelligent Adaptive Systems, UHH\\
 		\item testing of data passing between services (on the example of SOAP UI)
 		\item consumer driven testing (on the example of Pact)
 		\item End-to-End Testing (BDD Tools, JBehave, Cucumber)
-
 	\end{itemize}
 \end{frame}
 
 %===============================End
 
-%==============================Start
-% Scenarios section
-\section{Scenarios}
-\begin{frame}
-	\frametitle{Scenarios}
-	We will consider all scenarios in the context of metasearch engine for information about hotels.  
-	\begin{itemize}
- 		 \item Scenario 1: Testing microservices within application.
-		 \item Scenario 2: Testing microservices that use third-party service
-		 \item Scenario 3: Testing microservice that will be or is already exposed to public domain
-	\end{itemize}
-\end{frame}
-%===============================End
 
 %==============================Start
 % References section
