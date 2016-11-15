@@ -24,9 +24,11 @@
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
 
+\usepackage{float}
+\usepackage{wrapfig}
+
 
 \usepackage[T1]{fontenc}
-
 
 \usepackage{comment}
 %usepackage{appendixnumberbeamer}
@@ -39,6 +41,8 @@
 \bibpunct{(}{)}{;}{a}{,}{,}
 \def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
 \renewcommand{\bibsection}{\subsubsection*{\bibname } }
+\graphicspath{ {images/} }
+
 
 \title{Quality Assurance In Microservice Architectures}
 
@@ -172,6 +176,45 @@ Intelligent Adaptive Systems, UHH\\
 \end{frame}
 
 %===============================End
+
+%===============================Start
+% CD related slides
+%===============================End
+\section{Deployment Pipeline}
+
+\begin{frame}
+	\frametitle{Deployment Pipeline}
+	\framesubtitle{}
+
+\end{frame}
+
+%===============================Start
+% Smart releases slides
+%===============================End
+
+\begin{frame}
+	\frametitle{Smart releasing strategies}
+	\framesubtitle{}
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item Smoke Test Suites
+		\item Blue/Green Deployment
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+		\end{center}
+	\end{figure}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+
+
 
 
 %==============================Start
