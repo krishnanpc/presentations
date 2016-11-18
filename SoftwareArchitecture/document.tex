@@ -106,80 +106,56 @@ Intelligent Adaptive Systems, UHH\\
 % You might wish to add the option [pausesections]
 %\end{frame}
 
-%==============================Start
+%==============================
 % Theory section
-\section{Structure}
-%\subsection[Short First Subsection Name]{First Subsection Name}
+%==============================
+\section{Outline}
 \begin{frame}
-	\frametitle{Structure}	
-	\framesubtitle{}
-	Goal: explore QA techniques and approaches, that could cope with challenges specific for microservice architectures. \\
-	Structure:
-	\begin{itemize}
-		\item Give an insight of why QA is important and what challenges it meets in microservice architectures. 
- 		\item Give and overview of QA techniques that are used in all stages of development: from coding phase to production. Explain benefits that we gain, using these 	   techniques. 
-		\item Show on the example of metasearch engine how these techniques could be applied and how they could be adapted to different scenarios.
-		\item Provide some examples of software tools and show how they could be used for an implementation of explored QA techniques.
-	\end{itemize}
-\end{frame}
-
-\section{Theoretical part}
-\begin{frame}
-	\frametitle{Theoretical part}	
-	\framesubtitle{}
-
-	\begin{itemize}
- 		 \item Challenges of testing in microservice architectures.
-		 \item Types of tests (Cohn Test Pyramid), their purposes, scopes and quantities. Ice Cream Cone antipattern.
-		 \item Non-functional testing: performance, security.
-		 \item Rapid application deployment as a prerequisite for microservices. Deployment pipeline. Continuous integration, deployment and delivery.
-		 \item Releasing strategies: blue/green deployment, canary releasing, smoke tests.
-		 \item After release quality assurance: monitoring, DevOpsCulture. 
-	\end{itemize}
-\end{frame}
-%===============================End
-
-%==============================Start
-% Scenarios section
-\section{Example}
-\begin{frame}
-	\frametitle{Example}
-	We are going to use an example of metasearch engine (for traveling-related information) throughout our presentation to show how explored techniques could be applied. 
-	We also want to show that testing strategies should be adapted to concrete scenarios on the example of:
-	\begin{itemize}	
- 		\item Scenario 1: Testing microservices within application.
-		\item Scenario 2: Testing microservices that use third-party service
-		\item Scenario 3: Testing microservices that will be or is already exposed to public domain
-	\end{itemize}
-\end{frame}
-%===============================End
-
-
-%==============================Start
-% Tools section
-\section{Tools}
-
-\begin{frame}
-	\frametitle{Tools}
+	\frametitle{Outline}	
 	\framesubtitle{}
 	\begin{itemize}
-		% Unit testing: Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on
-		% the early stages and most precisely (up to the line of code).  Unit testing is also the powerful designing tool (especially if it is used in the context of TDD),
-		% because it highlights when module should be broken into smaller more coherent pieces.
-		\item xUnit framework
-		\item stubbing and mocking (on the example of Mockito)
-		\item smart stubbing with Mountebank
-		\item testing of data passing between services (on the example of SOAP UI)
-		\item consumer driven testing (on the example of Pact)
-		\item End-to-End Testing (BDD Tools, JBehave, Cucumber)
+		\item What is Quality Assurance?
+ 		\item QA is easy, isn't it?
+		\item QA on Development stage.
+		\item QA on Deployment stage.
+		\item QA after Release.
+		\item Conclusion.
 	\end{itemize}
 \end{frame}
 
-%===============================End
+%===============================
+% Introduction
+%===============================
+\section{Introduction}
+\begin{frame}
+	\frametitle{Introduction}	
+	\framesubtitle{}
 
-%===============================Start
+\begin{definition}
+Quality Assurance refers to planned and systematic production processes that provide confidence in a product's suitability for its intended purposes.
+\end{definition}
+	\begin{itemize}
+ 		\item QA must prevent bugs and failures, not identify them.
+		\item QA is wasteful on the last stages of development cycle.
+	\end{itemize}
+\end{frame}
+
+%===============================
+% Challenges
+%===============================
+\section{Challenges}
+\begin{frame}
+	\frametitle{Challenges}	
+	\framesubtitle{}
+
+	\begin{itemize}
+ 		\item 
+	\end{itemize}
+\end{frame}
+
+%===============================
 % CD related slides
-%===============================End
+%===============================
 \section{Deployment}
 
 \begin{frame}
@@ -246,6 +222,26 @@ DevOps Culture:
 	\framesubtitle{Monitoring}
 \end{frame}
 
+%==============================
+% Tools section
+%==============================
+\section{Tools}
+
+\begin{frame}
+	\frametitle{Tools}
+	\framesubtitle{}
+	\begin{itemize}
+		% Unit testing: Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on
+		% the early stages and most precisely (up to the line of code).  Unit testing is also the powerful designing tool (especially if it is used in the context of TDD),
+		% because it highlights when module should be broken into smaller more coherent pieces.
+		\item xUnit framework
+		\item stubbing and mocking (on the example of Mockito)
+		\item smart stubbing with Mountebank
+		\item testing of data passing between services (on the example of SOAP UI)
+		\item consumer driven testing (on the example of Pact)
+		\item End-to-End Testing (BDD Tools, JBehave, Cucumber)
+	\end{itemize}
+\end{frame}
 
 %==============================Start
 % References section
