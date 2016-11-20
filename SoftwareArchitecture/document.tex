@@ -24,19 +24,25 @@
 \usepackage[scaled=.90]{helvet}
 \usepackage{courier}
 
+\usepackage{float}
+\usepackage{wrapfig}
+
 
 \usepackage[T1]{fontenc}
-
 
 \usepackage{comment}
 %usepackage{appendixnumberbeamer}
 %\usepackage{amsmath}
 \usepackage{pgfpages}
 % citations
+
 \usepackage{natbib}
+\bibliographystyle{unsrtnat}
 \bibpunct{(}{)}{;}{a}{,}{,}
 \def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
 \renewcommand{\bibsection}{\subsubsection*{\bibname } }
+\graphicspath{ {images/} }
+
 
 \title{Quality Assurance In Microservice Architectures}
 
@@ -100,35 +106,269 @@ Intelligent Adaptive Systems, UHH\\
 % You might wish to add the option [pausesections]
 %\end{frame}
 
-%==============================Start
+%==============================
 % Theory section
-\section{Introduction}
-%\subsection[Short First Subsection Name]{First Subsection Name}
+%==============================
+\section{Outline}
+\begin{frame}
+	\frametitle{Outline}	
+	\framesubtitle{}
+	\begin{itemize}
+		\item What is Quality Assurance?
+ 		\item QA is easy, isn't it?
+		\item QA on Development stage.
+		\item QA on Deployment stage.
+		\item QA after Release.
+		\item Conclusion.
+	\end{itemize}
+\end{frame}
 
+%===============================
+% Introduction
+%===============================
+\section{Introduction}
 \begin{frame}
 	\frametitle{Introduction}	
 	\framesubtitle{}
-	Goal: explore strategies of building reliable QA system, that could cope with challenges specific for microservice architectures. Give an examples of existing tools and technologies.
-        Consider different types of testing within key scenarios.
 
+\begin{definition}
+Quality Assurance refers to planned and systematic production processes that provide confidence in a product's suitability for its intended purposes.
+\end{definition}
 	\begin{itemize}
- 		 \item Challenges of testing in microservice architectures.
-		 \item Types of tests (Cohn Test Pyramid), their purposes, scopes and quantities. Ice Cream Cone antipattern.
-		 \item Non-functional testing: performance, security.
-		 \item Rapid application deployment as a prerequisite for microservices. Deployment pipeline. Continuous integration, deployment and delivery.
-		 \item Releasing strategies: blue/green deployment, canary releasing, smoke tests.
-		 \item After release quality assurance: monitoring, DevOpsCulture. 
+ 		\item QA must prevent bugs and failures, not identify them.
+		\item QA is wasteful on the last stages of development cycle.
 	\end{itemize}
 \end{frame}
+
+%===============================
+% Challenges
+%===============================
+\section{Challenges}
+\begin{frame}
+	\frametitle{Challenges}	
+	\framesubtitle{}
+
+	\begin{itemize}
+ 		\item 
+	\end{itemize}
+\end{frame}
+
+%===============================
+% Test Pyramid
+%===============================
+\section{Testing Strategies}
+\begin{frame}
+	\frametitle{Test Pyramid}	
+	\framesubtitle{A balanced test portfolio }
+Mike Cohen's Test Pyramid
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item  Foundation Layer: Unit Tests
+		\item Intermediate Layer: Contract Testing and Integaration Testing
+		\item Tip of the Pyramid: E2E UI Tests
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.47]{TestPyramid}
+ 					\end{center} % image is from Infosys White Paper - Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+%===============================
+% Unit Test - To be revised
+%===============================
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Applying the layers in a microservice }
+Unit Tests
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\uncover<1->{\item Coverage limited to individual components}
+		\uncover<1->{\item Useful in services, resources, repositories, and adapters }
+		\uncover<1->{\item "every build should run the tests, and a failed test should fail the build"}
+		\uncover<2->{\item "Solitary Unit Test and Sociable Unit Test"}	
+		\uncover<2->{\item "Also a relevant design tool when combined with TDD"}
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\only<1>{\includegraphics[ scale=0.37]{UnitTest}}
+			\only<2>{\includegraphics[ scale=0.34]{UnitTest2}}
+			
+ 					\end{center} % image is from David Drake article and  -  Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%===============================
+% Intermediate Layer - To be revised
+%===============================
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Integration,Component and Contract Testing }
+Integration Tests
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item Covers communication paths and interactions between components to detect interface defects.
+		\item Gateway Integration and Persistence Integration
+		
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.37]{IntegrationTest}
+ 					\end{center} % image is from M.Fowler article -  Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Integration,Component and Contract Testing: }
+Component Tests
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Integration,Component and Contract Testing}
+Contract Tests
+\begin{columns}
+ \begin{column}{.9\textwidth}
+	\begin{itemize}
+		\item Verifies that the contract expected by a consuming service is met.
+		\item Integration Contract Testing and Consumer Driver Contract Testing.
+\item The Overall Service contract is the sum of individual contract tests.
+		
+	\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+
+%===============================
+%Test Scenarios
+%===============================
+\section{Test Scenarios}
+
+\begin{frame}
+	\frametitle{Scenario 1}
+	\framesubtitle{Testing between microservices internal to an application}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Scenario 2}
+	\framesubtitle{Testing between an internal microservice and an external API}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Scenario 3}
+	\framesubtitle{Microservice exposed to public domain}
+
+
+
+
+\end{frame}
+
+
+%===============================
+% CD related slides
+%===============================
+\section{Deployment}
+
+\begin{frame}
+	\frametitle{Deployment}
+	\framesubtitle{RAD and Deployment Pipeline}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deployment}
+	\framesubtitle{Continuous Deployment and Delivery}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Deployment}
+	\framesubtitle{DevOps Culture}
+
+DevOps Culture:
+	\begin{itemize}
+		\item Aim: break silos between development and later stages 
+		\item Requirements: shared responsibility and autonomy of teams
+	\end{itemize}
+	\begin{figure}
+		\begin{center}
+% image is from http://blogs.atlassian.com/2016/03/how-to-choose-devops-tools/
+% reference it!
+ 			\includegraphics[scale=0.12]{devopsloop}
+		\end{center}
+	\end{figure}
+
+\end{frame}
+
+
+%===============================Start
+% Smart releases slides
 %===============================End
+\section{After Deployment}
 
+\begin{frame}
+	\frametitle{After Deployment}
+	\framesubtitle{Smart releasing strategies}
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item Smoke Test Suites
+		\item Blue/Green Deployment
+		\item Canary releasing
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\only<1>{\includegraphics[ scale=0.16]{blue_green}\\}
+ 			\only<2>{\includegraphics[ scale=0.16]{canary}}\par
+		\end{center}
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
 
-%==============================Start
+\begin{frame}
+	\frametitle{After Deployment}
+	\framesubtitle{Monitoring}
+\end{frame}
+
+%==============================
 % Tools section
+%==============================
 \section{Tools}
 
 \begin{frame}
-	\frametitle{Overview of Tools}
+	\frametitle{Tools}
 	\framesubtitle{}
 	\begin{itemize}
 		% Unit testing: Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on
@@ -139,56 +379,23 @@ Intelligent Adaptive Systems, UHH\\
 		\item smart stubbing with Mountebank
 		\item testing of data passing between services (on the example of SOAP UI)
 		\item consumer driven testing (on the example of Pact)
+		\item End-to-End Testing (BDD Tools, JBehave, Cucumber)
 	\end{itemize}
 \end{frame}
-
-%===============================End
-
-%==============================Start
-% Scenarios section
-\section{Scenarios}
-\begin{frame}
-	\frametitle{Scenarios}
-	<The UML diagram of example architecture>
-	\begin{itemize}
- 		 \item Scenario 1: Testing microservices within application. 
-		 \item Scenario 2: Testing microservices that use third-party service
-		 \item Scenario 3: Testing of microservice that will be or is already exposed to public domain
-	\end{itemize}
-\end{frame}
-%===============================End
 
 %==============================Start
 % References section
+\section{References}
 \begin{frame}
 	\frametitle{References}
 	\framesubtitle{}
 
-
+	% make a list even without citation
+        \nocite{newman,cohn,infosys,clemson,fowler_cont_del,naik}
+	\bibliography{references}
 \end{frame}
+
 %===============================End
 
-%==============================Start
-% Summary section - we do not need summary slide right not, so it commented out
-%\section*{Summary}
-
-%\begin{frame}
-%\frametitle<presentation>{Summary}
-
-%\begin{itemize}
-%  \item The \alert{first main message} of your talk in one or two lines.
-%\end{itemize}
-
-% The following outlook is optional.
-%\vskip0pt plus.5fill
-%\begin{itemize}
-% \item Outlook
-% \begin{itemize}
-% \item Something you haven't solved.
-% \item Something else you haven't solved.
-% \end{itemize}
-% \end{itemize}
-% \end{frame}
-%===============================End
 
 \end{document}
