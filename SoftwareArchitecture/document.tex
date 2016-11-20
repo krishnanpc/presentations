@@ -154,6 +154,146 @@ Quality Assurance refers to planned and systematic production processes that pro
 \end{frame}
 
 %===============================
+% Test Pyramid
+%===============================
+\section{Testing Strategies}
+\begin{frame}
+	\frametitle{Test Pyramid}	
+	\framesubtitle{A balanced test portfolio }
+Mike Cohen's Test Pyramid
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item  Foundation Layer: Unit Tests
+		\item Intermediate Layer: Contract Testing and Integaration Testing
+		\item Tip of the Pyramid: E2E UI Tests
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.47]{TestPyramid}
+ 					\end{center} % image is from Infosys White Paper - Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+%===============================
+% Unit Test - To be revised
+%===============================
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Applying the layers in a microservice }
+Unit Tests
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\uncover<1->{\item Coverage limited to individual components}
+		\uncover<1->{\item Useful in services, resources, repositories, and adapters }
+		\uncover<1->{\item "every build should run the tests, and a failed test should fail the build"}
+		\uncover<2->{\item "Solitary Unit Test and Sociable Unit Test"}	
+		\uncover<2->{\item "Also a relevant design tool when combined with TDD"}
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\only<1>{\includegraphics[ scale=0.37]{UnitTest}}
+			\only<2>{\includegraphics[ scale=0.34]{UnitTest2}}
+			
+ 					\end{center} % image is from David Drake article and  -  Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%===============================
+% Intermediate Layer - To be revised
+%===============================
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Integration,Component and Contract Testing }
+Integration Tests
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item Covers communication paths and interactions between components to detect interface defects.
+		\item Gateway Integration and Persistence Integration
+		
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.37]{IntegrationTest}
+ 					\end{center} % image is from M.Fowler article -  Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Integration,Component and Contract Testing: }
+Component Tests
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Types of Tests}	
+	\framesubtitle{Integration,Component and Contract Testing}
+Contract Tests
+\begin{columns}
+ \begin{column}{.9\textwidth}
+	\begin{itemize}
+		\item Verifies that the contract expected by a consuming service is met.
+		\item Integration Contract Testing and Consumer Driver Contract Testing.
+\item The Overall Service contract is the sum of individual contract tests.
+		
+	\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+
+
+%===============================
+%Test Scenarios
+%===============================
+\section{Test Scenarios}
+
+\begin{frame}
+	\frametitle{Scenario 1}
+	\framesubtitle{Testing between microservices internal to an application}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Scenario 2}
+	\framesubtitle{Testing between an internal microservice and an external API}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Scenario 3}
+	\framesubtitle{Microservice exposed to public domain}
+
+
+
+
+\end{frame}
+
+
+%===============================
 % CD related slides
 %===============================
 \section{Deployment}
