@@ -178,22 +178,13 @@ Quality Assurance refers to planned and systematic production processes that pro
 	\frametitle{Test Pyramid}	
 	\framesubtitle{A balanced test portfolio }
 Mike Cohen's Test Pyramid
-\begin{columns}
- \begin{column}{.49\textwidth}
-	\begin{itemize}
-		\item  Foundation Layer: Unit Tests
-		\item Intermediate Layer: Contract Testing and Integaration Testing
-		\item Tip of the Pyramid: E2E UI Tests
-	\end{itemize}
-\end{column}
-\begin{column}{.49\textwidth}
+
 	\begin{figure}
 		\begin{center}
- 			\includegraphics[ scale=0.47]{TestPyramid}
+ 			\includegraphics[ scale=0.8]{TestPyramid}
  					\end{center} % image is from Infosys White Paper - Add Reference 
 	\end{figure}
-\end{column}
-\end{columns}
+
 \end{frame}
 
 %===============================
@@ -258,9 +249,24 @@ Integration Tests
 
 \begin{frame}
 	\frametitle{Types of Tests}	
-	\framesubtitle{Integration,Component and Contract Testing: }
-Component Tests
-
+	\framesubtitle{Integration,Component and Contract Testing }
+Integration Tests
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item A component is any well-encapsulated, coherent and independently replaceable part of a larger system.
+		\item Isolation of the service is achieved by replacing external collaborators with test doubles
+		
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.3]{comptests}
+ 					\end{center} % image is from M.Fowler article -  Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
 \end{frame}
 
 
@@ -282,6 +288,25 @@ Contract Tests
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Types of Tests}	
+	\framesubtitle{Non Functional Tests}
+Non Functional Tests validate the quality characteristics of the component.
+\begin{columns}
+ \begin{column}{.9\textwidth}
+	\begin{itemize}
+		\item Performance Tests.
+		\item Tests for Scalability.
+		\item Resiliency Tests.
+		\item Security Tests.
+
+		
+	\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
 
 %===============================
 %Test Scenarios
@@ -289,25 +314,52 @@ Contract Tests
 \section{Test Scenarios}
 
 \begin{frame}
-	\frametitle{Scenario 1}
-	\framesubtitle{Testing between microservices internal to an application}
+	\frametitle{Testing between Microservices internal to an application or residing within the same application}
+	\framesubtitle{ Tasks like  Selecting a Hotel and Booking a Hotel.}
+		\begin{center}
+ 			\includegraphics[ scale=0.95]{Scenario1}
+ 					\end{center} 
 
 \end{frame}
+
+
 
 \begin{frame}
-	\frametitle{Scenario 2}
-	\framesubtitle{Testing between an internal microservice and an external API}
-
+	\frametitle{Testing between an internal microservice and an external API}
+	\framesubtitle{Interaction with a Payment API}
+		\begin{center}
+ 			\includegraphics[ scale=0.35]{Scenario2}
+ 					\end{center} 
+	
 \end{frame}
+
 
 \begin{frame}
-	\frametitle{Scenario 3}
-	\framesubtitle{Microservice exposed to public domain}
-
-
-
-
+	\frametitle{Microservice exposed to public domain}
+	\framesubtitle{A publicly exposed application which is accessed by a Web API }
+		\begin{center}
+ 			\includegraphics[ scale=0.35]{Scenario3}
+ 					\end{center} 
+	
 \end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Test Boundaries}
+	\framesubtitle{Test boundaries for the example}
+
+		\begin{center}
+ 			\only<1>{\includegraphics[ scale=0.1]{TestBoundaries1}\\}
+ 			\only<2>{\includegraphics[ scale=0.1]{TestBoundaries2}\\}
+\only<3>{\includegraphics[ scale=0.1]{TestBoundaries3}\\}
+\only<4>{\includegraphics[ scale=0.1]{TestBoundaries}\\}
+
+ 					\end{center} 
+	
+\end{frame}
+
+
 
 
 %===============================
