@@ -448,9 +448,23 @@ DevOps Culture:
 \begin{frame}
 	\frametitle{After Deployment}
 	\framesubtitle{Logging}
-In microservice architectures, log aggregator is required to see an application state.
-\vfill
-Example: use elastic stack to organize metrics.
+
+\begin{columns}
+ \begin{column}{.75\textwidth}
+	\begin{itemize}
+\item In microservice architectures, log aggregator is required to see a global picture.
+\item Example: use elastic stack to organize logging.
+	\end{itemize}
+\end{column}
+
+\begin{column}{.25\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.2]{el_stack_logo}
+		\end{center}
+	\end{figure}
+\end{column}
+\end{columns}
 	\begin{figure}
 		\begin{center}
 			\includegraphics[scale=0.6]{logging}
