@@ -36,14 +36,25 @@
 \usepackage{pgfpages}
 % citations
 
-\usepackage{natbib}
-\bibliographystyle{unsrtnat}
-\bibpunct{(}{)}{;}{a}{,}{,}
-\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[font={scriptsize}]{caption}
+\captionsetup[figure]{labelformat=empty}
+\captionsetup[subfigure]{labelformat=empty, font=scriptsize, justification=centering}
+\usepackage[export]{adjustbox}
+
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
 \renewcommand{\bibsection}{\subsubsection*{\bibname } }
+
+%\usepackage{natbib}
+%\bibliographystyle{unsrtnat}
+%\bibpunct{(}{)}{;}{a}{,}{,}
+%\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+%\renewcommand{\bibsection}{\subsubsection*{\bibname } }
+
 \graphicspath{ {images/} }
-
-
 \title{Quality Assurance In Microservice Architectures}
 
 %\subtitle{}
@@ -132,7 +143,7 @@ Intelligent Adaptive Systems, UHH\\
 	\framesubtitle{}
 
 \begin{definition}
-Quality Assurance refers to planned and systematic production processes that provide confidence in a product's suitability for its intended purposes.
+Quality Assurance refers to planned and systematic production processes that provide confidence in a product's suitability for its intended purposes. \cite{trott}
 \end{definition}
 	\begin{itemize}
  		\item QA must prevent bugs and failures, not identify them.
@@ -166,7 +177,9 @@ Quality Assurance refers to planned and systematic production processes that pro
 \begin{frame}
 	\frametitle{Introduction}	
 	\framesubtitle{Case Study}
-	\includegraphics[ scale=0.5]{example}
+	Metasearch engine for hotels:
+\vfill
+	\includegraphics[ scale=0.5]{example1}
 \end{frame}
 
 
@@ -178,22 +191,13 @@ Quality Assurance refers to planned and systematic production processes that pro
 	\frametitle{Test Pyramid}	
 	\framesubtitle{A balanced test portfolio }
 Mike Cohen's Test Pyramid
-\begin{columns}
- \begin{column}{.49\textwidth}
-	\begin{itemize}
-		\item  Foundation Layer: Unit Tests
-		\item Intermediate Layer: Contract Testing and Integaration Testing
-		\item Tip of the Pyramid: E2E UI Tests
-	\end{itemize}
-\end{column}
-\begin{column}{.49\textwidth}
+
 	\begin{figure}
 		\begin{center}
- 			\includegraphics[ scale=0.47]{TestPyramid}
+ 			\includegraphics[ scale=0.8]{TestPyramid}
  					\end{center} % image is from Infosys White Paper - Add Reference 
 	\end{figure}
-\end{column}
-\end{columns}
+
 \end{frame}
 
 %===============================
@@ -258,9 +262,24 @@ Integration Tests
 
 \begin{frame}
 	\frametitle{Types of Tests}	
-	\framesubtitle{Integration,Component and Contract Testing: }
-Component Tests
-
+	\framesubtitle{Integration,Component and Contract Testing }
+Integration Tests
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item A component is any well-encapsulated, coherent and independently replaceable part of a larger system.
+		\item Isolation of the service is achieved by replacing external collaborators with test doubles
+		
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.3]{comptests}
+ 					\end{center} % image is from M.Fowler article -  Add Reference 
+	\end{figure}
+\end{column}
+\end{columns}
 \end{frame}
 
 
@@ -282,6 +301,25 @@ Contract Tests
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Types of Tests}	
+	\framesubtitle{Non Functional Tests}
+Non Functional Tests validate the quality characteristics of the component.
+\begin{columns}
+ \begin{column}{.9\textwidth}
+	\begin{itemize}
+		\item Performance Tests.
+		\item Tests for Scalability.
+		\item Resiliency Tests.
+		\item Security Tests.
+
+		
+	\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
 
 %===============================
 %Test Scenarios
@@ -289,25 +327,37 @@ Contract Tests
 \section{Test Scenarios}
 
 \begin{frame}
-	\frametitle{Scenario 1}
-	\framesubtitle{Testing between microservices internal to an application}
+	\frametitle{Testing between Microservices internal to an application or residing within the same application}
+	\framesubtitle{ Interaction between the Aggregator and Data Loader.}
+		\begin{center}
+ 			\includegraphics[ scale=0.4]{Scenario1}
+ 					\end{center} 
 
 \end{frame}
+
+
 
 \begin{frame}
-	\frametitle{Scenario 2}
-	\framesubtitle{Testing between an internal microservice and an external API}
-
+	\frametitle{Testing between an internal microservice and an external API}
+	\framesubtitle{Interaction with a Payment API}
+		\begin{center}
+ 			\includegraphics[ scale=0.5]{Scenario2}
+ 					\end{center} 
+	
 \end{frame}
+
 
 \begin{frame}
-	\frametitle{Scenario 3}
-	\framesubtitle{Microservice exposed to public domain}
-
-
-
-
+	\frametitle{Microservice exposed to public domain}
+	\framesubtitle{A publicly exposed application which is accessed by a Web API }
+		\begin{center}
+ 			\includegraphics[ scale=0.5]{Scenario3}
+ 					\end{center} 
+	
 \end{frame}
+
+
+
 
 
 %===============================
@@ -319,7 +369,7 @@ Contract Tests
 	\frametitle{Deployment}
 	\framesubtitle{Rapid Application Delivery}
 	\begin{itemize}
-		\item RAD is a prerequisite for microservices []
+		\item RAD is a prerequisite for microservices. \cite{fowler_micr_prer}
 		\item Exhaustive tests could be slow.
 		\item Remedy: Deployment Pipeline.
 	\end{itemize}
@@ -342,6 +392,7 @@ Contract Tests
 		\begin{center}
 %https://puppet.com/blog/continuous-delivery-vs-continuous-deployment-what-s-diff
 			\includegraphics[scale=0.5]{delivery}
+			\caption{\cite{cont_delivery}}
 		\end{center}
 	\end{figure}
 \end{frame}
@@ -360,6 +411,7 @@ DevOps Culture:
 % image is from http://blogs.atlassian.com/2016/03/how-to-choose-devops-tools/
 % reference it!
  			\includegraphics[scale=0.12]{devopsloop}
+			\caption{\cite{devops}}
 		\end{center}
 	\end{figure}
 
@@ -385,8 +437,8 @@ DevOps Culture:
 \begin{column}{.49\textwidth}
 	\begin{figure}
 		\begin{center}
- 			\only<1>{\includegraphics[ scale=0.16]{blue_green}\\}
- 			\only<2>{\includegraphics[ scale=0.16]{canary}}\par
+ 			\only<1>{\includegraphics[ scale=0.5]{blue_green2}\\}
+ 			\only<2>{\includegraphics[ scale=0.5]{canary2}}\par
 		\end{center}
 	\end{figure}
 \end{column}
@@ -396,6 +448,23 @@ DevOps Culture:
 \begin{frame}
 	\frametitle{After Deployment}
 	\framesubtitle{Logging}
+
+\begin{columns}
+ \begin{column}{.75\textwidth}
+	\begin{itemize}
+\item In microservice architectures, log aggregator is required to see a global picture.
+\item Example: use elastic stack to organize logging.
+	\end{itemize}
+\end{column}
+
+\begin{column}{.25\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[ scale=0.2]{el_stack_logo}
+		\end{center}
+	\end{figure}
+\end{column}
+\end{columns}
 	\begin{figure}
 		\begin{center}
 			\includegraphics[scale=0.6]{logging}
@@ -408,36 +477,46 @@ DevOps Culture:
 	\framesubtitle{Monitoring}
 \end{frame}
 
-%==============================
-% Tools section
-%==============================
-\section{Tools}
+\begin{frame}
+	\frametitle{After Deployment}
+	\framesubtitle{Correlation IDs technique}
+\begin{columns}
+ \begin{column}{.49\textwidth}
+	\begin{itemize}
+		\item End-user capability is provided by multiple services.
+		\item User request initiates a chain of downstream calls.
+		\item Correlation IDs allow to picture the propagation of request through the system.
+	\end{itemize}
+\end{column}
+\begin{column}{.49\textwidth}
+	\begin{figure}
+		\begin{center}
+ 			\includegraphics[scale=0.5]{correlationIDs}
+		\end{center}
+	\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
 
 \begin{frame}
-	\frametitle{Tools}
+	\frametitle{Conclusion}
 	\framesubtitle{}
 	\begin{itemize}
-		% Unit testing: Unit testing is a testing of smallest testable parts of applications, ideally of single methods or procedures. Unit testing helps to identify bugs on
-		% the early stages and most precisely (up to the line of code).  Unit testing is also the powerful designing tool (especially if it is used in the context of TDD),
-		% because it highlights when module should be broken into smaller more coherent pieces.
-		\item xUnit framework
-		\item stubbing and mocking (on the example of Mockito)
-		\item smart stubbing with Mountebank
-		\item testing of data passing between services (on the example of SOAP UI)
-		\item consumer driven testing (on the example of Pact)
-		\item End-to-End Testing (BDD Tools, JBehave, Cucumber)
+		\item It is essential to find proper balance between various types of testing.
+		\item Focus shifted to after deployment stages. 
+		\item
 	\end{itemize}
 \end{frame}
 
 %==============================Start
 % References section
 \section{References}
-\begin{frame}
+\begin{frame}[allowframebreaks]
 	\frametitle{References}
 	\framesubtitle{}
 
 	% make a list even without citation
-        \nocite{newman,cohn,infosys,clemson,fowler_cont_del,naik}
+        \nocite{newman,cohn,infosys}
 	\bibliography{references}
 \end{frame}
 
