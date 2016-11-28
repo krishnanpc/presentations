@@ -36,14 +36,25 @@
 \usepackage{pgfpages}
 % citations
 
-\usepackage{natbib}
-\bibliographystyle{unsrtnat}
-\bibpunct{(}{)}{;}{a}{,}{,}
-\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[font={scriptsize}]{caption}
+\captionsetup[figure]{labelformat=empty}
+\captionsetup[subfigure]{labelformat=empty, font=scriptsize, justification=centering}
+\usepackage[export]{adjustbox}
+
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
 \renewcommand{\bibsection}{\subsubsection*{\bibname } }
+
+%\usepackage{natbib}
+%\bibliographystyle{unsrtnat}
+%\bibpunct{(}{)}{;}{a}{,}{,}
+%\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+%\renewcommand{\bibsection}{\subsubsection*{\bibname } }
+
 \graphicspath{ {images/} }
-
-
 \title{Quality Assurance In Microservice Architectures}
 
 %\subtitle{}
@@ -397,6 +408,7 @@ DevOps Culture:
 % image is from http://blogs.atlassian.com/2016/03/how-to-choose-devops-tools/
 % reference it!
  			\includegraphics[scale=0.12]{devopsloop}
+			\caption{\cite{devops}}
 		\end{center}
 	\end{figure}
 
